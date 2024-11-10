@@ -11,7 +11,8 @@ from multiprocessing import Pool
 from argparse import ArgumentParser
 
 import pandas as pd
-from spacy.lang.en import English
+# import spacy
+# from spacy.lang.en import English
 from tqdm import tqdm
 
 random.seed(43)
@@ -29,8 +30,8 @@ parser.add_argument("--num_workers", type=int, default=40,
                     
 args = parser.parse_args()
 
-nlp = English()
-nlp.add_pipe('sentencizer')
+# nlp = English()
+# nlp.add_pipe('sentencizer')
 
 def gather_author_data(data, truth): 
     """Returns a dictionary where each key is the author identifier and 
@@ -65,21 +66,14 @@ def gather_author_data(data, truth):
 def paragraph_split(syms, topic):
     """Split story into paragraphs.
     """
-    doc = nlp(syms)
-    sentences = [str(s) for s in doc.sents]
-    
     new_data = {
         "syms" : [],
         "topic" : [],
     }
     
-    N = len(sentences)
-    paragraph_length = 8
-    
-    for i in range(0, N, paragraph_length):
-        paragraph = ' '.join(sentences[i:i+8])
-        new_data["syms"].append(paragraph)
-        new_data["topic"].append(topic)
+    paragraph = syms
+    new_data["syms"].append(paragraph)
+    new_data["topic"].append(topic)
         
     return new_data
 

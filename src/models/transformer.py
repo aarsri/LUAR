@@ -37,7 +37,7 @@ class Transformer(LightningTrainer):
         }
         modelname = transformer_modelnames[self.params.model_type]
 
-        model_path = os.path.join(utils.transformer_path, modelname)
+        model_path = "sentence-transformers/paraphrase-distilroberta-base-v1"
         self.transformer = AutoModel.from_pretrained(model_path)
 
         self.hidden_size = self.transformer.config.hidden_size
