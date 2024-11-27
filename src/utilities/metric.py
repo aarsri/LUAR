@@ -46,15 +46,16 @@ def ranking(queries,
     num_queries = len(query_authors)
     ranks = np.zeros((num_queries), dtype=np.float32)
     reciprocal_ranks = np.zeros((num_queries), dtype=np.float32)
-    
     distances = pairwise_distances(queries, Y=targets, metric=metric, n_jobs=-1)
 
     for i in range(num_queries):
         dist = distances[i]
         sorted_indices = np.argsort(dist)
         sorted_target_authors = target_authors[sorted_indices]
-        ranks[i] = np.where(sorted_target_authors ==
-                            query_authors[i])[0].item()
+        try:
+            ranks[i] = np.where(sorted_target_authors == query_authors[i])[0].item()
+        except:
+            ranks[i] = np.where(sorted_target_authors == query_authors[i])[0][0]
         reciprocal_ranks[i] = 1.0 / float(ranks[i] + 1)
         
     return_dict = {

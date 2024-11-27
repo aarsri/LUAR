@@ -32,6 +32,7 @@ def main(params):
     # create experiment_dir and load model
     experiment_dir = os.path.join(utils.output_path, params.experiment_id)
     experiment_dir = utils.path_exists(experiment_dir, True)
+    print(experiment_dir)
     model = Transformer(params)
     
     # compute validation if needed, otherwise just skip it and save 
@@ -56,6 +57,7 @@ def main(params):
         # get the latest checkpoint
         version = "version_0" if params.version is None else params.version
         path = os.path.join(experiment_dir, params.log_dirname, version, 'checkpoints', '*.ckpt')
+        print(path)
         resume_from_checkpoint = glob.glob(path)[-1]
         print("Checkpoint: {}".format(resume_from_checkpoint))
 
@@ -77,6 +79,7 @@ def main(params):
 
     if params.do_learn:
         trainer.fit(model)
+        trainer.save_checkpoint('./output/fanfic_model/lightning_logs/version_0/checkpoints/example.ckpt')
 
     if params.evaluate:
         trainer.test(model)
