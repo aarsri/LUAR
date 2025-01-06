@@ -56,8 +56,8 @@ class RetrievalDataset(Dataset):
 
     def get_model_path(self):
         transformer_modelnames = {
-            "roberta": "paraphrase-distilroberta-base-v1",
-            "roberta_base": "roberta-base",
+            "roberta": "Santp98/SBERT-pairs-bert-base-spanish-wwm-cased",
+            "roberta_base": "dccuchile/bert-base-spanish-wwm-cased",
         }
 
         return os.path.join(utils.transformer_path, transformer_modelnames[self.params.model_type])
