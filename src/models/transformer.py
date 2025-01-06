@@ -32,12 +32,12 @@ class Transformer(LightningTrainer):
         """Creates the Transformer model.
         """
         transformer_modelnames = {
-            "roberta": "paraphrase-distilroberta-base-v1",
-            "roberta_base": "roberta-base",
+            "roberta": "Santp98/SBERT-pairs-bert-base-spanish-wwm-cased",
+            "roberta_base": "dccuchile/bert-base-spanish-wwm-cased",
         }
         modelname = transformer_modelnames[self.params.model_type]
 
-        model_path = "sentence-transformers/paraphrase-distilroberta-base-v1"
+        model_path = "Santp98/SBERT-pairs-bert-base-spanish-wwm-cased"
         self.transformer = AutoModel.from_pretrained(model_path)
 
         self.hidden_size = self.transformer.config.hidden_size
