@@ -55,7 +55,7 @@ def create_argument_parser():
                         help="Specifies learning rate")
     parser.add_argument("--learning_rate_scaling", action="store_true", default=False,
                         help="Toggles variance-based learning rate scaling")
-    parser.add_argument("--batch_size", type=int, default=128,
+    parser.add_argument("--batch_size", type=int, default=8,
                         help="Number of authors to include in each batch")
     parser.add_argument("--load_checkpoint", default=False, action = 'store_true', 
                         help="If True, will load the latest checkpoint")
