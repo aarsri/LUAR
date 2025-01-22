@@ -16,4 +16,4 @@ if [ ! -d "./pretrained_weights" ]; then
     mkdir ./pretrained_weights
 fi
 
-git clone https://huggingface.co/sentence-transformers/paraphrase-distilroberta-base-v1 pretrained_weights/paraphrase-distilroberta-base-v1
+git clone https://huggingface.co/Santp98/SBERT-pairs-bert-base-spanish-wwm-cased src/pretrained_weights/Santp98/SBERT-pairs-bert-base-spanish-wwm-cased
