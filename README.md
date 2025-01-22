@@ -8,6 +8,7 @@ python3 -m venv vluar
 pip3 install -U pip
 pip3 install -r requirements.txt
 ```
+Also need to download the pretrained model. Need to change more in the code if we want it to load from Huggingface directly.
 ```bash
 ./scripts/download_sbert_weights.sh
 ```
@@ -16,6 +17,7 @@ pip3 install -r requirements.txt
 ```bash
 python main.py --dataset_name pan_paragraph --do_learn --validate --experiment_id fanfic_model --num_epoch 2 --period 1
 ```
+Data files are already in the repo. Training errors out.
 
 ## Evaluation
 ```bash
