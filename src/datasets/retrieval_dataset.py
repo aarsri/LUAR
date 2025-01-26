@@ -183,7 +183,7 @@ class RetrievalDataset(Dataset):
         else: 
             self.data = pd.read_json(filename, lines=True, nrows=self.params.sanity)
             self.num_authors = len(self.data)
-        
+
     def build_byte_count_list(self, filename: str, load_first_N: int):
         """Builds a list where each element contains the number of bytes for 
            that particular line.
