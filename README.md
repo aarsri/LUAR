@@ -15,12 +15,14 @@ Also need to download the pretrained model. Need to change more in the code if w
 
 ## Training
 ```bash
+cd src
 python main.py --dataset_name pan_paragraph --do_learn --validate --experiment_id fanfic_model --num_epoch 2 --period 1
 ```
 Data files are already in the repo. Training errors out.
 
 ## Evaluation
 ```bash
+cd src
 python main.py --dataset_name pan_paragraph --evaluate --experiment_id fanfic_model --load_checkpoint
 ```
 
